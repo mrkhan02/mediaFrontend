@@ -110,10 +110,11 @@ export default function Articles() {
                         justifyContent: "space-evenly",
                     }}
                 >
-                    {data1.previous ? (
+                    {
                         <IconButton
                             aria-label="delete"
                             size="small"
+                            disabled={(data1.previous ?false:true)}
                             onClick={() => {
                                 setPage(page - 1);
                                 scrollToTop();
@@ -121,14 +122,13 @@ export default function Articles() {
                         >
                             <ArrowBackIosIcon fontSize="small" />
                         </IconButton>
-                    ) : (
-                        <></>
-                    )}
+                    }
 
-                    {data1.next ? (
+                    {
                         <IconButton
                             aria-label="delete"
                             size="small"
+                            disabled={(data1.next?false:true)}
                             onClick={() => {
                                 setPage(page + 1);
                                 scrollToTop();
@@ -136,9 +136,7 @@ export default function Articles() {
                         >
                             <ArrowForwardIosIcon fontSize="small" />
                         </IconButton>
-                    ) : (
-                        <></>
-                    )}
+                    }
                 </div>
             </>
         );
